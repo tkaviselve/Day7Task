@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Countries name Using Filter function</title>
+</head>
+<body>
+        <h1>Display all the countries from Asia continent /region using Filter function<h1>
+        <script>
+             function handleData(){
+             let data =JSON.parse(this.responseText)
+             const asia=data.filter((element)=>{
+            if(element.region==='Asia'){
+            return element.name;
+        }
+    })
+    console.log(asia);}
+            const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+    </body>
+        
